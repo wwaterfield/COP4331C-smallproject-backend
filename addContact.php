@@ -1,7 +1,7 @@
 <?php
     $inData = getRequestInfo();
 
-    $sqlInjection = array("'", ";", ":");
+    $sqlInjection = array("'", ";", ":", "\"");
     $userName = str_replace($sqlInjection, "", $inData["user"]);
     $contactName = str_replace($sqlInjection, "", $inData["contactName"]);
     $photo = str_replace($sqlInjection, "", $inData["photo"]);

@@ -1,7 +1,7 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$sqlInjection = array("'", ";", ":");
+	$sqlInjection = array("'", ";", ":","\"");
 	$name = str_replace($sqlInjection, "", $inData["name"]);
 //	$id = $inData["id"];
 	$password = str_replace($sqlInjection, "", $inData["password"]);

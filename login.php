@@ -12,7 +12,10 @@
 	} 
 	else
 	{
-		$sql = "SELECT id,name FROM user where name='" . $inData["name"] . "' and password='" . $inData["password"] . "'";
+		$sqlInjection = array("'", ";", ":", "\"");
+		$user = str_replace($sqlInjection, "", $inData["name"]);
+		$password = str_replace($sqlInjection, "", $inData["password"]);
+		$sql = "SELECT id,name FROM user where name='" . $user . "' and password='" . $password . "'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
